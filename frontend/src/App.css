@@ -1,0 +1,589 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f4f7f5;
+  color: #1f2933;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.app {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* ================= SIDEBAR ================= */
+
+.sidebar {
+  width: 250px;
+  min-height: 100vh;
+  background: #123b2a;
+  color: white;
+  padding: 25px 18px;
+  display: flex;
+  flex-direction: column;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px;
+  margin-bottom: 40px;
+}
+
+.logo > :first-child {
+  font-size: 35px;
+}
+
+.logo h2 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.logo span {
+  font-size: 11px;
+  opacity: 0.7;
+}
+
+nav {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.nav-item {
+  border: none;
+  background: transparent;
+  color: #d8e7df;
+  padding: 13px 14px;
+  text-align: left;
+  border-radius: 9px;
+  font-size: 14px;
+}
+
+.nav-item:hover,
+.nav-item.active {
+  background: #2f7555;
+  color: white;
+}
+
+.sidebar-bottom {
+  margin-top: auto;
+  padding: 15px 8px;
+  color: #c7d9d0;
+}
+
+.sidebar-bottom small {
+  display: block;
+  margin-top: 12px;
+  font-size: 10px;
+  opacity: 0.6;
+}
+
+.status {
+  font-size: 12px;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  background: #4ade80;
+  display: inline-block;
+  border-radius: 50%;
+  margin-right: 7px;
+}
+
+/* ================= MAIN ================= */
+
+.main {
+  flex: 1;
+  padding: 30px 38px;
+  overflow-x: hidden;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 28px;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 28px;
+}
+
+.header p {
+  margin: 7px 0 0;
+  color: #718096;
+  font-size: 14px;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.profile strong,
+.profile small {
+  display: block;
+}
+
+.profile small {
+  color: #718096;
+  margin-top: 3px;
+}
+
+.avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: #2f7555;
+  color: white;
+  display: grid;
+  place-items: center;
+  font-weight: bold;
+}
+
+/* ================= STATISTICS ================= */
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  margin-bottom: 22px;
+}
+
+.stat-card {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  border: 1px solid #e4ebe7;
+}
+
+.stat-icon {
+  width: 45px;
+  height: 45px;
+  border-radius: 10px;
+  background: #eaf4ee;
+  display: grid;
+  place-items: center;
+  font-size: 21px;
+}
+
+.stat-card span {
+  color: #718096;
+  font-size: 12px;
+}
+
+.stat-card h2 {
+  margin: 4px 0;
+  font-size: 25px;
+}
+
+.stat-card small {
+  color: #9aa6a0;
+  font-size: 10px;
+}
+
+/* ================= PANELS ================= */
+
+.content-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 22px;
+  margin-bottom: 22px;
+}
+
+.panel {
+  background: white;
+  border: 1px solid #e4ebe7;
+  border-radius: 12px;
+  padding: 22px;
+}
+
+.panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.panel-header h2 {
+  margin: 0;
+  font-size: 17px;
+}
+
+.panel-header p {
+  margin: 5px 0 0;
+  color: #87938d;
+  font-size: 12px;
+}
+
+.view-button {
+  border: none;
+  background: #edf5f0;
+  color: #286044;
+  padding: 9px 12px;
+  border-radius: 7px;
+  font-size: 11px;
+}
+
+/* ================= REAL GIS MAP ================= */
+
+.map {
+  height: 310px;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+/* Make Leaflet fill the map container */
+
+.map .leaflet-container {
+  height: 100%;
+  width: 100%;
+  border-radius: 10px;
+}
+
+/* ================= QUICK ACTIONS ================= */
+
+.action {
+  width: 100%;
+  border: 1px solid #e1e9e4;
+  background: white;
+  display: flex;
+  align-items: center;
+  text-align: left;
+  gap: 12px;
+  padding: 14px;
+  border-radius: 9px;
+  margin-bottom: 12px;
+}
+
+.action:hover {
+  background: #f4f9f6;
+}
+
+.action > span {
+  font-size: 22px;
+}
+
+.action div {
+  flex: 1;
+}
+
+.action strong,
+.action small {
+  display: block;
+}
+
+.action strong {
+  font-size: 13px;
+}
+
+.action small {
+  color: #89958f;
+  font-size: 10px;
+  margin-top: 4px;
+}
+
+.action b {
+  color: #56806b;
+}
+
+.action.primary {
+  background: #eaf4ee;
+  border-color: #c9e2d2;
+}
+
+/* ================= TABLE ================= */
+
+.surveys-panel {
+  margin-bottom: 30px;
+}
+
+.table-container {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th {
+  text-align: left;
+  color: #78857e;
+  font-size: 11px;
+  padding: 12px;
+  background: #f7faf8;
+}
+
+td {
+  padding: 15px 12px;
+  border-top: 1px solid #edf1ee;
+  font-size: 12px;
+}
+
+.badge {
+  padding: 5px 9px;
+  border-radius: 20px;
+  font-size: 10px;
+}
+
+.badge.verified {
+  background: #e4f5e9;
+  color: #287342;
+}
+
+.badge.pending {
+  background: #fff3d8;
+  color: #9a6b13;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 1000px) {
+  .stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .content-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    width: 210px;
+  }
+}
+
+@media (max-width: 700px) {
+  .sidebar {
+    display: none;
+  }
+
+  .main {
+    padding: 20px;
+  }
+
+  .stats {
+    grid-template-columns: 1fr;
+  }
+}
+.map {
+  width: 100%;
+  height: 380px;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.map .leaflet-container {
+  width: 100%;
+  height: 100%;
+}
+/* New Survey Page */
+
+.survey-page {
+  padding: 10px 0;
+}
+
+.page-title {
+  margin-bottom: 20px;
+}
+
+.page-title h1 {
+  margin: 0;
+  font-size: 26px;
+}
+
+.page-title p {
+  margin-top: 6px;
+  color: #718096;
+}
+
+.survey-card {
+  background: white;
+  border: 1px solid #e1e8e4;
+  border-radius: 14px;
+  padding: 28px;
+  max-width: 900px;
+}
+
+.survey-card h2 {
+  margin-top: 0;
+}
+
+.form-description {
+  color: #718096;
+  margin-bottom: 25px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.form-group label {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.form-group input,
+.form-group select {
+  padding: 12px;
+  border: 1px solid #d7e0db;
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: #2f8061;
+}
+
+.boundary-section {
+  margin-top: 28px;
+  padding: 18px;
+  border: 1px dashed #9fcbb5;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.boundary-icon {
+  font-size: 28px;
+}
+
+.boundary-section h3 {
+  margin: 0 0 5px;
+}
+
+.boundary-section p {
+  margin: 0;
+  color: #718096;
+  font-size: 13px;
+}
+
+.map-button {
+  margin-left: auto;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 7px;
+  background: #e8f5ee;
+  color: #216747;
+  cursor: pointer;
+}
+
+.form-actions {
+  margin-top: 28px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.cancel-button,
+.save-button {
+  padding: 11px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.cancel-button {
+  background: white;
+  border: 1px solid #d5ddd8;
+}
+
+.save-button {
+  background: #247653;
+  color: white;
+  border: none;
+}
+/* ===== GIS MAP FIX ===== */
+
+.map {
+  width: 100%;
+  height: 380px;
+  overflow: hidden;
+  border-radius: 12px;
+  position: relative;
+}
+
+.map .leaflet-container {
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 380px;
+  z-index: 1;
+}
+/* ===== TEXT VISIBILITY FIX ===== */
+
+.panel h2 {
+  color: #173b2d;
+}
+
+.panel-header p {
+  color: #5f746a;
+}
+
+.stat-card h3 {
+  color: #173b2d;
+}
+
+.stat-card p {
+  color: #667a70;
+}
+
+.quick-actions h2 {
+  color: #173b2d;
+}
+
+.quick-actions p {
+  color: #667a70;
+}
+
+.recent-surveys h2 {
+  color: #173b2d;
+}
+
+.recent-surveys p {
+  color: #667a70;
+}
+
+.table-header {
+  color: #35564a;
+}
+/* Leaflet map */
+.map {
+  height: 380px !important;
+  width: 100% !important;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.map .leaflet-container {
+  height: 380px !important;
+  width: 100% !important;
+  min-height: 380px !important;
+}
